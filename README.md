@@ -1,2 +1,2 @@
 # dotfiles
-Script programando en bash para poder instalar el entonrno de escritorio xmonad con alguna utilidades
+Script programando en bash para poder instalar un entorno de trbajo, utilizando xmonad, xmobar con alguna utilidades
