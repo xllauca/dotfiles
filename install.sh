@@ -20,7 +20,7 @@ echo -e "\n${verde}[INICIANDO...]${endColour}\n"
 #############################################################################################################
 #                                                INSTALACION DE DEPENDECIAS                                 #
 #############################################################################################################
-cd ~/
+cd ~
 sudo chsh -s /bin/zsh root
 sudo pacman -S feh --noconfirm #
 sudo pacman -S wget --noconfirm
@@ -47,15 +47,23 @@ sudo pacman -S fzf --noconfirm
 cd ~/dotfiles
 mkdir -p ~/.config/dotfiles
 mkdir -p ~/.config/dotfiles/xmobar
-mkdir -p ~/.config/dotfiles/scripts/
+mkdir -p ~/.config/dotfiles/scripts
 mkdir -p ~/.config/dotfiles/backgrounds
 mkdir -p ~/.config/dotfiles/icons
 mkdir -p ~/.config/dotfiles/picom
 cp xmonad/xmonad.hs ~/.xmonad/xmonad.hs
 cp xmobar/xmobarrc  ~/.config/dotfiles/xmobar/xmobarrc
-cp icons/haskell_20.xpm ~/.config/dotfiles/icons/haskell_20.xpm
+cp scripts/autostart.sh ~/.config/dotfiles/scripts/autostart.sh
+cp scripts/ethernet_status.sh ~/.config/dotfiles/scripts/ethernet_status.sh
+cp scripts/hackthebox.sh ~/.config/dotfiles/scripts/hackthebox.sh
 cp backgrounds/sami.jpg ~/.config/dotfiles/backgrounds/sami.jpg
+cp backgrounds/aphack.jpg ~/.config/dotfiles/backgrounds/aphack.jpg
+cp icons/haskell_20.xpm ~/.config/dotfiles/icons/haskell_20.xpm
 cp neofetch/config.conf ~/.config/neofetch/config.conf
+cp picom/picom.conf ~/.config/dotfiles/picom/picom.conf
+chmod + ~/.config/dotfiles/scripts/autostart.sh
+chmod + ~/.config/dotfiles/scripts/ethernet_status.sh
+chmod + ~/.config/dotfiles/scripts/hackthebox.sh
 #############################################################################################################
 #                                                plugins installation                                       #
 #############################################################################################################
