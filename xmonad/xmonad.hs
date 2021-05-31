@@ -183,7 +183,7 @@ spawnSelected' lst = gridselect conf lst >>= flip whenJust spawn
 --
 -- Autostart
 myStartupHook = do
-    spawn "/home/xllauca/.config/xmonad/scripts/autostart.sh"
+    spawn "~/.config/dotfiles/scripts/autostart.sh"
     setWMName "LG3D"
 
 --------------------------------------------------------------------------- }}}
