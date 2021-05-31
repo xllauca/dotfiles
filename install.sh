@@ -17,11 +17,11 @@ morado="\e[0;35m\033[1m"
 turquesa="\e[0;36m\033[1m"
 gris="\e[0;37m\033[1m"
 echo -e "\n${verde}[INICIANDO...]${endColour}\n"
-#asignamos una shell a root
-sudo chsh -s /bin/zsh root
 #############################################################################################################
 #                                                INSTALACION DE DEPENDECIAS                                 #
 #############################################################################################################
+cd ~/
+sudo chsh -s /bin/zsh root
 sudo pacman -S feh --noconfirm #
 sudo pacman -S wget --noconfirm
 sudo pacman -S xmonad xmonad-contrib --noconfirm
@@ -42,42 +42,37 @@ sudo pacman -S zsh-autosuggestions --noconfirm
 sudo pacman -S nano-syntax-highlighting --noconfirm
 sudo pacman -S fzf --noconfirm
 #############################################################################################################
-#                                                  FOLDERS CREATION                                        #
+#                                                  FOLDERS CREATION                                         #
 #############################################################################################################
-cd ~/xmonad
-rm -rf ~/.config/dotfiles
+cd ~/dotfiles
 mkdir -p ~/.config/dotfiles
 mkdir -p ~/.config/dotfiles/xmobar
-cp dotfiles/xmonad.hs ~/.xmonad/xmonad.hs
-
-cp neofetch/ ~/.config/neofetch/config.conf
+mkdir -p ~/.config/dotfiles/scripts/
+mkdir -p ~/.config/dotfiles/backgrounds
+mkdir -p ~/.config/dotfiles/icons
+mkdir -p ~/.config/dotfiles/picom
+cp xmonad/xmonad.hs ~/.xmonad/xmonad.hs
+cp xmobar/xmobarrc  ~/.config/dotfiles/xmobar/xmobarrc
+cp icons/haskell_20.xpm ~/.config/dotfiles/icons/haskell_20.xpm
+cp backgrounds/sami.jpg ~/.config/dotfiles/backgrounds/sami.jpg
+cp neofetch/config.conf ~/.config/neofetch/config.conf
 #############################################################################################################
 #                                                plugins installation                                       #
 #############################################################################################################
-cd ~/xmonad
+cd ~
 sudo wget -N https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh -O /usr/share/zsh/plugins/zsh-autosuggestions/sudo.plugin.zsh
 #sudo chmod +x /usr/share/zsh/plugins/zsh-autosuggestions/sudo.plugin.zsh
-
-#install compton
-
 #install powerlevel10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
-
 #install tmux
-cd
+cd ~
 git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
 cp .tmux/.tmux.conf.local .
-
-#install fzf
-
-
 #install vmtools
 sudo pacman -S open-vm-tools --noconfirm
 sudo systemctl enable vmtoolsd
 sudo systemctl start vmtoolsd
-
-#paso final 
-
+#paso final
 reboot
