@@ -19,5 +19,6 @@ gris="\e[0;37m\033[1m"
 echo -e "\n${verde}[INICIANDO...]${endColour}\n"
 
 #asignamos una shell a root
-sudo chsh -s /bin/bash root
-
+sudo chsh -s /bin/zsh root
+#instalamos wget
+sudo pacman -S wget
