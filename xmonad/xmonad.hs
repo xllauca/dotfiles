@@ -386,7 +386,7 @@ myLogHook h = dynamicLogWithPP $ wsPP { ppOutput = hPutStrLn h }
 -- myWsBar:           xmobar setting                                        {{{
 -------------------------------------------------------------------------------
 
-myWsBar = "xmobar -x 0 /home/xllauca/.config/xmonad/xmobar/xmobarrc"
+myWsBar = "xmobar -x 0 ~/.config/dotfiles/xmobar/xmobarrc"
 
 wsPP = xmobarPP { ppOrder           = \(ws:l:t:_)  -> [ws,l,t]
                , ppCurrent         = xmobarColor colorRed     colorNormalbg . \s -> "●"

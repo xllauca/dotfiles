@@ -61,9 +61,9 @@ cp backgrounds/aphack.jpg ~/.config/dotfiles/backgrounds/aphack.jpg
 cp icons/haskell_20.xpm ~/.config/dotfiles/icons/haskell_20.xpm
 cp neofetch/config.conf ~/.config/neofetch/config.conf
 cp picom/picom.conf ~/.config/dotfiles/picom/picom.conf
-chmod + ~/.config/dotfiles/scripts/autostart.sh
-chmod + ~/.config/dotfiles/scripts/ethernet_status.sh
-chmod + ~/.config/dotfiles/scripts/hackthebox.sh
+chmod +x ~/.config/dotfiles/scripts/autostart.sh
+chmod +x ~/.config/dotfiles/scripts/ethernet_status.sh
+chmod +x ~/.config/dotfiles/scripts/hackthebox.sh
 #############################################################################################################
 #                                                plugins installation                                       #
 #############################################################################################################
