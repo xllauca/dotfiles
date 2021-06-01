@@ -81,9 +81,9 @@ sudo cp zsh/sudo.plugin.zsh /usr/share/zsh/plugins/zsh-autosuggestions/sudo.plug
 sudo chmod u+rw,g+r,o+r /usr/share/zsh/plugins/zsh-autosuggestions/sudo.plugin.zsh
 cd ~
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+cd ~/dotfiles
 sudo cp zsh/zshrc ~/.zshrc
 sudo cp zsh/p10k_user.zsh ~/.p10k.zsh
-#install tmux
 cd ~
 git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
