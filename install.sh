@@ -16,7 +16,7 @@ amarillo="\e[0;33m\033[1m"
 username=$(whoami)
 echo -e "\n${verde}[INICIANDO...]${endColour}\n"
 #############################################################################################################
-#                                                INSTALACION DE DEPENDECIAS                                 #
+#                                            INSTALLING DEPENDENCIES                                        #
 #############################################################################################################
 echo -e "\n${amarillo}[Installing dependencies]${endColour}\n"
 cd ~
@@ -64,7 +64,7 @@ cp scripts/hackthebox.sh ~/.config/dotfiles/scripts/hackthebox.sh
 cp backgrounds/sami.jpg ~/.config/dotfiles/backgrounds/sami.jpg
 cp backgrounds/aphack.jpg ~/.config/dotfiles/backgrounds/aphack.jpg
 cp icons/haskell_20.xpm ~/.config/dotfiles/icons/haskell_20.xpm
-cp neofetch/config.conf ~/.config/neofetch/config.conf
+sudo cp neofetch/config.conf ~/.config/neofetch/config.conf
 cp picom/picom.conf ~/.config/dotfiles/picom/picom.conf
 chmod +x ~/.config/dotfiles/scripts/autostart.sh
 chmod +x ~/.config/dotfiles/scripts/ethernet_status.sh
@@ -81,8 +81,8 @@ sudo cp zsh/sudo.plugin.zsh /usr/share/zsh/plugins/zsh-autosuggestions/sudo.plug
 sudo chmod u+rw,g+r,o+r /usr/share/zsh/plugins/zsh-autosuggestions/sudo.plugin.zsh
 cd ~
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
-sudo cp zsh/.zshrc ~/.zshrc
-sudo cp zsh/.p10k_user.zsh ~/.p10k.zsh
+sudo cp zsh/zshrc ~/.zshrc
+sudo cp zsh/p10k_user.zsh ~/.p10k.zsh
 #install tmux
 cd ~
 git clone https://github.com/gpakosz/.tmux.git
