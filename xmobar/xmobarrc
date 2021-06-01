@@ -38,10 +38,9 @@ Config { font = "xft:SauceCodePro Nerd Font Mono:size=12:antialias=true"
 					-- Runs a standard shell command 'uname -r' to get kernel version
 					, Run Com "echo $USER" [] "" 36000
                     -- trayer SET PATH TO TRAYER SCRIPT!!
-                   -- , Run Com "/home/xllauca/.config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 124
 					, Run Com "hostname" [] "" 36000
-                    , Run Com "/home/xllauca/.config/xmonad/scripts/ethernet_status.sh" []  "ether" 50
-                    , Run Com "/home/xllauca/.config/xmonad/scripts/hackthebox.sh" []  "htb" 50
+                    , Run Com "~/.config/dotfiles/scripts/ethernet_status.sh" []  "ether" 50
+                    , Run Com "~/.config/dotfiles/scripts/hackthebox.sh" []  "htb" 50
                     , Run StdinReader
 					, Run Com "uname" ["-r"] "" 36000
                     ]

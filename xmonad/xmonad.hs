@@ -104,13 +104,6 @@ import XMonad.Util.NamedScratchpad
 import XMonad.Util.Run (safeSpawn, unsafeSpawn, runInTerm, spawnPipe)
 import XMonad.Util.SpawnOnce
 
---------------------------------------------------------------------------- }}}
--- local variables                                                          {{{
--------------------------------------------------------------------------------
-
----------
---picom --config /home/xllauca/.config/compton/compton.conf
---myWorkspaces = ["1", "2", "3", "4", "5"]
 xmobarEscape = concatMap doubleLts
   where
         doubleLts '<' = "<<"
@@ -124,26 +117,6 @@ myWorkspaces = clickable . (map xmobarEscape)
                       (i,ws) <- zip [1..9] l,                                        
                       let n = i ] 
 modm = mod1Mask
-
--- Original Color Setting
---colorBlue      = "#868bae"
---colorGreen     = "#00d700"
---colorRed       = "#ff005f"
---colorGray      = "#666666"
---colorWhite     = "#bdbdbd"
---colorNormalbg  = "#1c1c1c"
---colorfg        = "#a8b6b8"
-
--- Soft Color Setting
---colorBlue       = "#477ab3"
---colorGreen      = "#52ad91"
---colorRed        = "#52ad91"
---colorGray       = "#4d4d4d"
---colorWhite      = "#ffffff"
---colorNormalbg   = "#1b1b1b"
---colorfg         = "#ffffff"
-
-
 -- Arc Color Setting
 colorBlue       = "#D8DEE9"
 colorGreen      = "#5E81AC"
@@ -317,22 +290,6 @@ myKeys =
         , ("<Print>", spawn "scrotd 0")
         ] where nonNSP          = WSIs (return (\ws -> W.tag ws /= "nsp"))
                 nonEmptyNonNSP  = WSIs (return (\ws -> isJust (W.stack ws) && W.tag ws /= "nsp"))
-
---------------------------------------------------------------------------- }}}
--- myLayout:          Handle Window behaveior                               {{{
--------------------------------------------------------------------------------
-
---myLayout = spacing gapwidth $ gaps [(U, gwU),(D, gwD),(L, gwL),(R, gwR)]
---           $ (ResizableTall 1 (1/204) (119/204) [])
---             ||| (TwoPane (1/204) (119/204))
---             ||| Simplest
-
---myLayout = tiled ||| Mirror tiled ||| Full
- -- where
-  --   tiled   = Tall nmaster delta ratio
-   --  nmaster = 1
-    -- ratio   = 1/2
-     --delta   = 3/100
 
 myLayout =  tiled ||| mtiled ||| full ||| threecol ||| grid
 	where
