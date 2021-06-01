@@ -2,7 +2,6 @@
 # Prompt preview:
 # [user@hostname]-[~]
 # >>>
-username=$(whoami)
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 autoload -U colors && colors
 PS1="%{$fg[blue]%}%B[%b%{$fg[cyan]%}%n%{$fg[grey]%}%B@%b%{$fg[cyan]%}%m%{$fg[blue]%}%B]-%b%{$fg[blue]%}%B[%b%{$fg[white]%}%~%{$fg[blue]%}%B]%b
@@ -79,14 +78,9 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 ZSH_TMUX_AUTOSTART='true'
-source /home/$username/powerlevel10k/powerlevel10k.zsh-theme
-
+source /home/xllauca/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
-
-# Manual configuration
-/home/$username/bin:/usr/lib/ccache/bin/:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/opt/bin:/usr/bin/core_perl:/usr/games/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
-#PATH=/root/.local/bin:/snap/bin:/usr/sandbox/:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
 
 # Manual aliases
 alias ll='lsd -lh --group-dirs=first'
@@ -101,7 +95,7 @@ alias cat='bat'
 # Plugins
 source /usr/share/zsh/plugins/zsh-autosuggestions/*.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/*.zsh
-source /usr/share/zsh/plugins/sudo.plugin.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/sudo.plugin.zsh
 
 # Functions
 function mkt(){

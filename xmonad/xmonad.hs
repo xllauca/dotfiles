@@ -156,7 +156,7 @@ spawnSelected' lst = gridselect conf lst >>= flip whenJust spawn
 --
 -- Autostart
 myStartupHook = do
-    spawn "~/.config/dotfiles/scripts/autostart.sh"
+    spawn "/home/xllauca/.config/dotfiles/scripts/autostart.sh"
     setWMName "LG3D"
 
 --------------------------------------------------------------------------- }}}
@@ -343,7 +343,7 @@ myLogHook h = dynamicLogWithPP $ wsPP { ppOutput = hPutStrLn h }
 -- myWsBar:           xmobar setting                                        {{{
 -------------------------------------------------------------------------------
 
-myWsBar = "xmobar -x 0 ~/.config/dotfiles/xmobar/xmobarrc"
+myWsBar = "xmobar -x 0 /home/xllauca/.config/dotfiles/xmobar/xmobarrc"
 
 wsPP = xmobarPP { ppOrder           = \(ws:l:t:_)  -> [ws,l,t]
                , ppCurrent         = xmobarColor colorRed     colorNormalbg . \s -> "●"
