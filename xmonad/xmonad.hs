@@ -172,14 +172,6 @@ spawnSelected' :: [(String, String)] -> X ()
 spawnSelected' lst = gridselect conf lst >>= flip whenJust spawn
     where conf = defaultGSConfig
 
-<<<<<<< HEAD
---
--- Autostart
-myStartupHook = do
-    spawn "/home/xllauca/.config/dotfiles/scripts/autostart.sh"
-    setWMName "LG3D"
-=======
->>>>>>> master
 
 
 ----------------------------------------------------------------------------------
@@ -396,87 +388,6 @@ myKeys =
         ] where nonNSP          = WSIs (return (\ws -> W.tag ws /= "nsp"))
                 nonEmptyNonNSP  = WSIs (return (\ws -> isJust (W.stack ws) && W.tag ws /= "nsp"))
 
-<<<<<<< HEAD
-myLayout =  tiled ||| mtiled ||| full ||| threecol ||| grid
-	where
-    nmaster  = 1     -- Default number of windows in master pane
-    delta    = 2/100 -- Percentage of the screen to increment when resizing
-    ratio    = 1/2   -- Defaul proportion of the screen taken up by main pane
-    rt       = spacing 5 $ ResizableTall nmaster delta ratio []
-    tiled    = renamed [Replace "T"] $ smartBorders rt
-    mtiled   = renamed [Replace "Bs"] $ smartBorders $ Mirror rt
-    full     = renamed [Replace "M"] $ noBorders Full
-    threecol = renamed [Replace "3c"] $ ThreeColMid 1 (3/100) (1/2)
-    grid     = renamed [Replace "G"] $ GridRatio (3/3)
---------------------------------------------------------------------------- }}}
--- myManageHookShift: some window must created there                        {{{
--------------------------------------------------------------------------------
-
-myManageHookShift = composeAll
-            -- if you want to know className, type "$ xprop|grep CLASS" on shell
-            [ className =? "Gimp"       --> mydoShift "3"
-            ]
-             where mydoShift = doF . liftM2 (.) W.greedyView W.shift
-
---------------------------------------------------------------------------- }}}
--- myManageHookFloat: new window will created in Float mode                 {{{
--------------------------------------------------------------------------------
-
-myManageHookFloat = composeAll
-    [ className =? "Gimp"             --> doFloat
-    , className =? "SMPlayer"               --> doFloat
-    , className =? "mpv"              --> doCenterFloat
-    , className =? "feh"              --> doCenterFloat
-    , className =? "Audacious"        --> doCenterFloat
-    --, className =? "Thunar"           --> doCenterFloat
-    , className =? "Websearch"        --> doCenterFloat
-    , title     =? "urxvt_float"      --> doSideFloat SC
-    , isFullscreen                    --> doFullFloat
-    , isDialog                        --> doCenterFloat
-    , stringProperty "WM_NAME" =? "LINE" --> (doRectFloat $ W.RationalRect 0.60 0.1 0.39 0.82)
-    , stringProperty "WM_NAME" =? "Google Keep" --> (doRectFloat $ W.RationalRect 0.3 0.1 0.4 0.82)
-    , stringProperty "WM_NAME" =? "tmptex.pdf - 1/1 (96 dpi)" --> (doRectFloat $ W.RationalRect 0.29 0.25 0.42 0.5)
-    , stringProperty "WM_NAME" =? "Figure 1" --> doCenterFloat
-    ]
-
---------------------------------------------------------------------------- }}}
--- myLogHook:         loghock settings                                      {{{
--------------------------------------------------------------------------------
-
-myLogHook h = dynamicLogWithPP $ wsPP { ppOutput = hPutStrLn h }
-
---------------------------------------------------------------------------- }}}
--- myWsBar:           xmobar setting                                        {{{
--------------------------------------------------------------------------------
-
-myWsBar = "xmobar -x 0 /home/xllauca/.config/dotfiles/xmobar/xmobarrc"
-
-wsPP = xmobarPP { ppOrder           = \(ws:l:t:_)  -> [ws,l,t]
-               , ppCurrent         = xmobarColor colorRed     colorNormalbg . \s -> "●"
-               , ppUrgent          = xmobarColor colorGray    colorNormalbg . \s -> "●"
-               , ppVisible         = xmobarColor colorRed     colorNormalbg . \s -> "⦿"
-               , ppHidden          = xmobarColor colorGray    colorNormalbg . \s -> "●"
-               , ppHiddenNoWindows = xmobarColor colorGray    colorNormalbg . \s -> "○"
-              -- , ppTitle           = xmobarColor colorRed     colorNormalbg
-               , ppTitle           =  (\str -> "")
-               , ppOutput          = putStrLn
-               , ppWsSep           = " "
-               , ppSep             = "  "
-                }
-
---------------------------------------------------------------------------- }}}                                         {
---------------------------------------------------------------------------- }}}
--- newMouse:          Right click is used for resizing window               {{{
--------------------------------------------------------------------------------
-
-myMouse x = [ ((modm, button3), (\w -> focus w >> Flex.mouseResizeWindow w)) ]
-newMouse x = M.union (mouseBindings def x) (M.fromList (myMouse x))
-
---------------------------------------------------------------------------- }}}
-
-
--- vim: ft=haskell
-=======
 
 ----------------------------------------------------------------------------------
 ---                        ESPACIOS DE TRABAJO                                 ---
@@ -527,5 +438,3 @@ threeCol   = renamed [Replace "TC"] $ limitWindows 3  $ ThreeCol 1 (3/100) (1/2)
 monocle      = renamed [Replace "M"]  $ limitWindows 20 $ Full
 --space      = renamed [Replace "space"]    $ limitWindows 4  $ spacing 12 $ Mirror $ mkToggle (single MIRROR) $ mkToggle (single REFLECTX) $ mkToggle (single REFLECTY) $ OneBig (2/3) (2/3)
 floats       = renamed [Replace "F"]   $ limitWindows 20 $ simplestFloat
-
->>>>>>> master
