@@ -1,12 +1,8 @@
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
-<<<<<<< HEAD
 # Load colours and then set prompt
 # Prompt preview:
 # [user@hostname]-[~]
 # >>>
-=======
-
->>>>>>> master
 autoload -U colors && colors
 PS1="%{$fg[blue]%}%B[%b%{$fg[cyan]%}%n%{$fg[grey]%}%B@%b%{$fg[cyan]%}%m%{$fg[blue]%}%B]-%b%{$fg[blue]%}%B[%b%{$fg[white]%}%~%{$fg[blue]%}%B]%b
 %{$fg[cyan]%}%B>>>%b%{$reset_color%} "
@@ -23,10 +19,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Set up the prompt
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 #autoload -Uz promptinit
 #promptinit
@@ -91,22 +83,13 @@ zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-<<<<<<< HEAD
 ZSH_TMUX_AUTOSTART='true'
-=======
-ZSH_DISABLE_COMPFIX="true"
-#ZSH_TMUX_AUTOSTART='true'
->>>>>>> master
 source /home/xllauca/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 # Manual configuration
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 # Manual aliases
 alias ll='lsd -lh --group-dirs=first'
 alias la='lsd -a --group-dirs=first'
@@ -119,18 +102,11 @@ source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
 
 # Plugins
-<<<<<<< HEAD
 source /usr/share/zsh/plugins/zsh-autosuggestions/*.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/*.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/sudo.plugin.zsh
 #mis atajos
-=======
-#source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/sudo.plugin.zsh
-#source /usr/share/zsh/plugins/zsh-syntax-highlighting/*
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
->>>>>>> master
+
 #neofetch | lolcat
 # Functions
 function mkt(){
@@ -214,17 +190,13 @@ alias mv="mv -i"
 alias df="df -h"                          # human-readable sizes
 alias free="free -h"
 alias du="du -h"
-<<<<<<< HEAD
 alias htbe="/home/xllauca/Desktop/xllauca/Tools/htbExplorer/htbExplorer"
 alias htbi="openvpn /root/Desktop/lab_xllauca.ovpn &"
 alias htbs="killall openvpn"
-=======
 alias htbb="openvpn /home/xllauca/Downloads/cybermayhem_xllauc* &"
 alias htbe="/home/xllauca/Desktop/xllauca/Tools/htbExplorer/htbExplorer"
 alias htbi="openvpn /root/Desktop/lab_xllauca.ovpn &"
 alias htbs="killall openvpn"
-alias share="sudo vmhgfs-fuse .host:/ /mnt/hgfs -o allow_other"
->>>>>>> master
 
 # Finalize Powerlevel10k instant prompt. Should stay at the bottom of ~/.zshrc.
 (( ! ${+functions[p10k-instant-prompt-finalize]} )) || p10k-instant-prompt-finalize
