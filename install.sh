@@ -43,7 +43,6 @@ sudo pacman -S dmenu --noconfirm
 sudo pacman -S open-vm-tools --noconfirm
 sudo pacman -S xclip --noconfirm
 sudo pacman -S bat --noconfirm
-sudo pacman -S lsd --noconfirm
 sudo pacman -S lolcat --noconfirm
 echo -e "\n${rojo}[Fixing errors in lolcat installation...]${endColour}\n"
 export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
@@ -106,11 +105,7 @@ sudo pacman -S cloudfail --noconfirm
 sudo pacman -S linkfinder --noconfirm
 sudo pacman -S shellerator --noconfirm
 sudo pacman -S enum4linux-ng --noconfirm
-
-
-
 echo -e "\n${azul}[Successfully installed units]${endColour}\n"
-
 #############################################################################################################
 #                                                  FOLDERS CREATION                                         #
 #############################################################################################################
@@ -161,7 +156,7 @@ sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /root/powe
 cd ~/dotfiles
 sudo mv zsh/p10k_root.zsh  /root/.p10k.zsh
 sudo rm /root/.zshrc
-sudo ln -s -f /home/xllauca/.zshrc /root/.zshrc
+sudo ln -s -f /home/$username/.zshrc /root/.zshrc
 echo -e "\n${azul}[Plugins successfully installed and configured]${endColour}\n"
 #############################################################################################################
 #                                           START AN ENABLE SERVICE                                         #
