@@ -131,6 +131,7 @@ cp scripts/autostart.sh ~/.config/dotfiles/scripts/autostart.sh
 cp scripts/ethernet_status.sh ~/.config/dotfiles/scripts/ethernet_status.sh
 cp scripts/hackthebox.sh ~/.config/dotfiles/scripts/hackthebox.sh
 cp backgrounds/sami.jpg ~/.config/dotfiles/backgrounds/sami.jpg
+cp backgrounds/circle.jpg ~/.config/dotfiles/backgrounds/circle.jpg 
 cp backgrounds/aphack.jpg ~/.config/dotfiles/backgrounds/aphack.jpg
 sudo cp backgrounds/sami.jpg /usr/share/backgrounds/hacktheplanet.png
 sudo cp backgrounds/sami.jpg /usr/share/backgrounds/blackarch.png
