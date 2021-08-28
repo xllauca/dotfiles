@@ -119,18 +119,11 @@ source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
 
 # Plugins
-<<<<<<< HEAD
 source /usr/share/zsh/plugins/zsh-autosuggestions/*.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/*.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/sudo.plugin.zsh
 #mis atajos
-=======
-#source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/sudo.plugin.zsh
-#source /usr/share/zsh/plugins/zsh-syntax-highlighting/*
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
->>>>>>> master
+
 #neofetch | lolcat
 # Functions
 function mkt(){
@@ -214,17 +207,13 @@ alias mv="mv -i"
 alias df="df -h"                          # human-readable sizes
 alias free="free -h"
 alias du="du -h"
-<<<<<<< HEAD
 alias htbe="/home/xllauca/Desktop/xllauca/Tools/htbExplorer/htbExplorer"
 alias htbi="openvpn /root/Desktop/lab_xllauca.ovpn &"
 alias htbs="killall openvpn"
-=======
 alias htbb="openvpn /home/xllauca/Downloads/cybermayhem_xllauc* &"
 alias htbe="/home/xllauca/Desktop/xllauca/Tools/htbExplorer/htbExplorer"
 alias htbi="openvpn /root/Desktop/lab_xllauca.ovpn &"
 alias htbs="killall openvpn"
-alias share="sudo vmhgfs-fuse .host:/ /mnt/hgfs -o allow_other"
->>>>>>> master
 
 # Finalize Powerlevel10k instant prompt. Should stay at the bottom of ~/.zshrc.
 (( ! ${+functions[p10k-instant-prompt-finalize]} )) || p10k-instant-prompt-finalize
