@@ -122,23 +122,6 @@ mkdir -p ~/.config/dotfiles/scripts
 mkdir -p ~/.config/dotfiles/backgrounds
 mkdir -p ~/.config/dotfiles/icons
 mkdir -p ~/.config/dotfiles/picom
-<<<<<<< HEAD
-cd ~/dotfiles
-sudo cp xmonad/xmonad.hs ~/.xmonad/xmonad.hs
-sudo cp neofetch/config.conf ~/.config/neofetch/config.conf
-cp xmobar/xmobarrc  ~/.config/dotfiles/xmobar/xmobarrc
-cp scripts/autostart.sh ~/.config/dotfiles/scripts/autostart.sh
-cp scripts/ethernet_status.sh ~/.config/dotfiles/scripts/ethernet_status.sh
-cp scripts/hackthebox.sh ~/.config/dotfiles/scripts/hackthebox.sh
-cp backgrounds/sami.jpg ~/.config/dotfiles/backgrounds/sami.jpg
-cp backgrounds/circle.jpg ~/.config/dotfiles/backgrounds/circle.jpg 
-cp backgrounds/aphack.jpg ~/.config/dotfiles/backgrounds/aphack.jpg
-sudo cp backgrounds/sami.jpg /usr/share/backgrounds/hacktheplanet.png
-sudo cp backgrounds/sami.jpg /usr/share/backgrounds/blackarch.png
-cp icons/haskell_20.xpm ~/.config/dotfiles/icons/haskell_20.xpm
-cd ~/dotfiles
-sudo cp picom/picom.conf ~/.config/dotfiles/picom/picom.conf
-=======
 mv xmonad/xmonad.hs ~/.xmonad/xmonad.hs
 mv xmobar/xmobarrc  ~/.config/dotfiles/xmobar/xmobarrc
 sudo mv scripts/exec-in-shell /usr/bin/
@@ -151,7 +134,6 @@ mv backgrounds/aphack.jpg ~/.config/dotfiles/backgrounds/aphack.jpg
 mv icons/haskell_20.xpm ~/.config/dotfiles/icons/haskell_20.xpm
 sudo mv neofetch/config.conf ~/.config/neofetch/config.conf
 mv picom/picom.conf ~/.config/dotfiles/picom/picom.conf
->>>>>>> master
 chmod +x ~/.config/dotfiles/scripts/autostart.sh
 chmod +x ~/.config/dotfiles/scripts/ethernet_status.sh
 chmod +x ~/.config/dotfiles/scripts/hackthebox.sh
@@ -161,16 +143,10 @@ echo -e "\n${azul}[Files and archives, created and copied successfully]${endColo
 #############################################################################################################
 echo -e "\n${amarillo}[Installing and configuring plugins]${endColour}\n"
 cd ~/dotfiles
-<<<<<<< HEAD
-sudo cp fonts/'Sauce Code Pro Nerd Font Complete Mono.ttf' /usr/share/fonts/TTF/'Sauce Code Pro Nerd Font Complete Mono.ttf'
-sudo cp fonts/'Hack Regular Nerd Font Complete Mono.ttf' /usr/share/fonts/TTF/'Hack Regular Nerd Font Complete Mono.ttf'
-sudo cp zsh/sudo.plugin.zsh /usr/share/zsh/plugins/zsh-autosuggestions/sudo.plugin.zsh
-=======
 sudo mv -r fonts/* /usr/share/fonts/TTF/
 sudo chmod -R u+rw,g+r,o+r /usr/share/fonts/TTF/*
 sudo mv zsh/sudo.plugin.zsh /usr/share/zsh/plugins/zsh-autosuggestions/sudo.plugin.zsh
 sudo chmod u+rw,g+r,o+r /usr/share/zsh/plugins/zsh-autosuggestions/sudo.plugin.zsh
->>>>>>> master
 cd ~
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 cd ~/dotfiles
