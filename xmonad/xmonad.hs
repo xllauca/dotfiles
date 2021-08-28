@@ -273,7 +273,7 @@ myKeys =
     -- Menu Tools
           , (("M-C-p"), spawnSelected'
           [ 
-             ("BurpSuite", "/bin/java -jar /usr/share/burpsuite/burpsuite.jar")
+             ("BurpSuite", "/bin/java --illegal-access=permit -jar /usr/share/burpsuite/burpsuite.jar")
            , ("Sqlmap", "xfce4-terminal --execute zsh -c 'exec-in-shell sqlmap'")
            , ("Subfinder", "xfce4-terminal --execute zsh -c 'exec-in-shell subfinder'")
            , ("Httpx", "xfce4-terminal --execute zsh -c 'exec-in-shell httpx'")

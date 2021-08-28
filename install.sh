@@ -44,6 +44,7 @@ sudo pacman -S open-vm-tools --noconfirm
 sudo pacman -S xclip --noconfirm
 sudo pacman -S bat --noconfirm
 sudo pacman -S lolcat --noconfirm
+sudo pacman -S lsd --noconfirm
 #echo -e "\n${rojo}[Fixing errors in lolcat installation...]${endColour}\n"
 #export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 #export PATH="$PATH:$GEM_HOME/bin"
