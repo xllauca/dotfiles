@@ -117,8 +117,9 @@ mkdir -p ~/.config/dotfiles/scripts
 mkdir -p ~/.config/dotfiles/backgrounds
 mkdir -p ~/.config/dotfiles/icons
 mkdir -p ~/.config/dotfiles/picom
+cd ~/dotfiles
 mv xmonad/xmonad.hs ~/.xmonad/xmonad.hs
-mv xmobar/xmobarrc  ~/.config/dotfiles/xmobar/xmobarrc
+mv xmobar/xmobarrc0  ~/.config/dotfiles/xmobar/xmobarrc0
 sudo mv scripts/exec-in-shell /usr/bin/
 sudo chmod +x /usr/bin/exec-in-shell
 mv scripts/autostart.sh ~/.config/dotfiles/scripts/autostart.sh
@@ -126,6 +127,7 @@ mv scripts/ethernet_status.sh ~/.config/dotfiles/scripts/ethernet_status.sh
 mv scripts/hackthebox.sh ~/.config/dotfiles/scripts/hackthebox.sh
 mv backgrounds/sami.jpg ~/.config/dotfiles/backgrounds/sami.jpg
 mv backgrounds/aphack.jpg ~/.config/dotfiles/backgrounds/aphack.jpg
+mv backgrounds/circle.jpg ~/.config/dotfiles/backgrounds/circle.jpg
 mv icons/haskell_20.xpm ~/.config/dotfiles/icons/haskell_20.xpm
 sudo mv neofetch/config.conf ~/.config/neofetch/config.conf
 mv picom/picom.conf ~/.config/dotfiles/picom/picom.conf
@@ -138,7 +140,7 @@ echo -e "\n${azul}[Files and archives, created and copied successfully]${endColo
 #############################################################################################################
 echo -e "\n${amarillo}[Installing and configuring plugins]${endColour}\n"
 cd ~/dotfiles
-sudo mv -r fonts/* /usr/share/fonts/TTF/
+sudo mv fonts/* /usr/share/fonts/TTF/
 sudo chmod -R u+rw,g+r,o+r /usr/share/fonts/TTF/*
 sudo mv zsh/sudo.plugin.zsh /usr/share/zsh/plugins/zsh-autosuggestions/sudo.plugin.zsh
 sudo chmod u+rw,g+r,o+r /usr/share/zsh/plugins/zsh-autosuggestions/sudo.plugin.zsh
