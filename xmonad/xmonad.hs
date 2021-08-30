@@ -364,6 +364,7 @@ myKeys =
 
     --- Programas
         , ("M-d", spawn "rofi -show run")
+	    , ("M-t", spawn "Thunar $(pwd)")
         , ("M-f", spawn "firefox")
         , ("M-p", spawn "flameshot gui")
         , ("M-<Return>", spawn (myTerminal ++ " -e zsh"))
@@ -438,3 +439,4 @@ threeCol   = renamed [Replace "TC"] $ limitWindows 3  $ ThreeCol 1 (3/100) (1/2)
 monocle      = renamed [Replace "M"]  $ limitWindows 20 $ Full
 --space      = renamed [Replace "space"]    $ limitWindows 4  $ spacing 12 $ Mirror $ mkToggle (single MIRROR) $ mkToggle (single REFLECTX) $ mkToggle (single REFLECTY) $ OneBig (2/3) (2/3)
 floats       = renamed [Replace "F"]   $ limitWindows 20 $ simplestFloat
+ 
