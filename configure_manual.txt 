@@ -1,15 +1,5 @@
 #############################################################################################################
-systemctl start sshd
-systemctl enable sshd.socket
 systemctl start NetworkManager
 systemctl enable NetworkManager
+pacman -S git
 #############################################################################################################
-sed 's/# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/g' /etc/sudoers > /etc/sudoers.new
-export EDITOR="cp /etc/sudoers.new"
-visudo
-rm /etc/sudoers.new
-useradd -m -g users -G wheel -s /bin/zsh xllauca
-passwd xllauca
-#Edit on  /etc/pacman.conf 
-#uncoment the next line
-#Include = /etc/pacman.d/mirrorlist/

@@ -17,16 +17,9 @@ echo -e "\n${verde}[INICIANDO...]${endColour}\n"
 #############################################################################################################
 #                                             CONFIGURATION MANUAL                                          #
 #############################################################################################################
-pacman -Syu
-#sudo pacman -S lightdm-webkit2-greeter --noconfirm
-#sudo pacman -S lightdm-webkit2-greeter lightdm-webkit-theme-litarvan --noconfirm
-#sudo systemctl status lightdm
-#/usr/lib/systemd/system/lightdm.service
-#/etc/lightdm/lightdm.conf
-#sudo systemctl enable lightdm.service
-sudo pacman -S xorg-server
-#/etc/systemd/system/display-manager.service
-#nano /etc/lightdm/lightdm-webkit2-greeter.conf
+sudo pacman -S xorg-server --noconfirm
+sudo pacman -S alacritty --noconfirm
+sudo pacman -S cmake freetype2 fontconfig pkg-config make libxcb --noconfirm
 sudo echo 'include "/usr/share/nano-syntax-highlighting/*.nanorc"' >> /etc/nanorc
 #############################################################################################################
 #                                            INSTALLING DEPENDENCIES                                        #
@@ -145,7 +138,7 @@ mkdir -p /home/xllauca/.config/dotfiles/icons
 mkdir -p /home/xllauca/.config/dotfiles/picom
 cd /home/xllauca/dotfiles
 #mv xmonad/xmonad.hs /home/xllauca/.xmonad/xmonad.hs
-cp mv xmonad/xmonad.hs /root/.xmonad/
+cp xmonad/xmonad.hs /root/.xmonad/
 mv xmobar/xmobarrc0  /home/xllauca/.config/dotfiles/xmobar/xmobarrc0
 sudo mv scripts/exec-in-shell /usr/bin/
 sudo chmod +x /usr/bin/exec-in-shell
@@ -214,6 +207,7 @@ echo -e "\n${azul}[Plugins successfully installed and configured]${endColour}\n"
 echo -e "\n${amarillo}[Enabling services]${endColour}\n"
 sudo systemctl start vmtoolsd.service
 sudo systemctl enable vmtoolsd.service
+vmware-toolbox-cmd timesync enable
 sudo systemctl start sshd.service
 sudo systemctl enable sshd.service
 echo -e "\n${azul}[Successfully enabled services]${endColour}\n"
