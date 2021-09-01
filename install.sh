@@ -44,14 +44,14 @@ sudo echo 'include "/usr/share/nano-syntax-highlighting/*.nanorc"' >> /etc/nanor
 #                                            INSTALLING DEPENDENCIES                                        #
 #############################################################################################################
 echo -e "\n${amarillo}[Installing dependencies]${endColour}\n"
-su - xllauca
+#su - xllauca
 sudo pacman -S lightdm-webkit2-greeter lightdm-webkit-theme-litarvan --noconfirm
-cd ~
+cd /home/xllauca
 pacman -S sudo --noconfirm
 pacman -S zsh --noconfirm
 pacman -S git --noconfirm
 
-cd ~
+cd /home/xllauca
 sudo chsh -s /usr/bin/zsh root
 sudo chsh -s /usr/bin/zsh xllauca
 sudo pacman -S feh --noconfirm #
@@ -90,7 +90,7 @@ echo -e "\n${azul}[Successfully installed units]${endColour}\n"
 #                                                  INSTALL TOOLS                                            #
 #############################################################################################################
 echo -e "\n${amarillo}[Creating and copying files]${endColour}\n"
-cd ~
+cd /home/xllauca
 git clone https://github.com/devanshbatham/ParamSpider
 cd ParamSpider
 sudo pip3 install -r requirements.txt
@@ -102,10 +102,10 @@ sudo pacman -S crlfuzz --noconfirm
 sudo pacman -S xsrfprobe --noconfirm
 sudo pacman -S liffy --noconfirm
 sudo pacman -S graphqlmap --noconfirm
-cd ~
+cd /home/xllauca
 git clone https://github.com/Naategh/dom-red.git
 cd dom-red && pip install -r requirements.txt
-cd ~
+cd /home/xllauca
 git clone https://github.com/devanshbatham/OpenRedireX
 sudo pacman -S smuggler --noconfirm
 sudo pacman -S ssrfmap --noconfirm
@@ -116,7 +116,7 @@ cd /opt/
 sudo git clone https://github.com/ticarpi/jwt_tool
 python3 -m pip install termcolor cprint pycryptodomex requests
 chmod +x /home/xllauca/jwt_tool/jwt_tool.py
-cd ~
+cd /home/xllauca
 git clone https://github.com/ticarpi/jwt_tool
 cd jwt_tool
 python3 -m pip install termcolor cprint pycryptodomex requests
@@ -145,68 +145,68 @@ echo -e "\n${azul}[Successfully installed units]${endColour}\n"
 #                                                  FOLDERS CREATION                                         #
 #############################################################################################################
 echo -e "\n${amarillo}[Creating and copying files]${endColour}\n"
-cd ~/dotfiles
-mkdir -p ~/.config/dotfiles
-mkdir -p ~/.config/dotfiles/xmobar
-mkdir -p ~/.config/dotfiles/scripts
-mkdir -p ~/.config/dotfiles/backgrounds
-mkdir -p ~/.config/dotfiles/icons
-mkdir -p ~/.config/dotfiles/picom
-cd ~/dotfiles
-mv xmonad/xmonad.hs ~/.xmonad/xmonad.hs
-mv xmobar/xmobarrc0  ~/.config/dotfiles/xmobar/xmobarrc0
+cd /home/xllauca/dotfiles
+mkdir -p /home/xllauca/.config/dotfiles
+mkdir -p /home/xllauca/.config/dotfiles/xmobar
+mkdir -p /home/xllauca/.config/dotfiles/scripts
+mkdir -p /home/xllauca/.config/dotfiles/backgrounds
+mkdir -p /home/xllauca/.config/dotfiles/icons
+mkdir -p /home/xllauca/.config/dotfiles/picom
+cd /home/xllauca/dotfiles
+mv xmonad/xmonad.hs /home/xllauca/.xmonad/xmonad.hs
+mv xmobar/xmobarrc0  /home/xllauca/.config/dotfiles/xmobar/xmobarrc0
 sudo mv scripts/exec-in-shell /usr/bin/
 sudo chmod +x /usr/bin/exec-in-shell
-mv scripts/autostart.sh ~/.config/dotfiles/scripts/autostart.sh
-mv scripts/ethernet_status.sh ~/.config/dotfiles/scripts/ethernet_status.sh
-mv scripts/hackthebox.sh ~/.config/dotfiles/scripts/hackthebox.sh
-mv backgrounds/sami.jpg ~/.config/dotfiles/backgrounds/sami.jpg
-mv backgrounds/aphack.jpg ~/.config/dotfiles/backgrounds/aphack.jpg
-mv backgrounds/circle.jpg ~/.config/dotfiles/backgrounds/circle.jpg
-mv icons/haskell_20.xpm ~/.config/dotfiles/icons/haskell_20.xpm
-sudo mv neofetch/config.conf ~/.config/neofetch/config.conf
-mv picom/picom.conf ~/.config/dotfiles/picom/picom.conf
-chmod +x ~/.config/dotfiles/scripts/autostart.sh
-chmod +x ~/.config/dotfiles/scripts/ethernet_status.sh
-chmod +x ~/.config/dotfiles/scripts/hackthebox.sh
+mv scripts/autostart.sh /home/xllauca/.config/dotfiles/scripts/autostart.sh
+mv scripts/ethernet_status.sh /home/xllauca/.config/dotfiles/scripts/ethernet_status.sh
+mv scripts/hackthebox.sh /home/xllauca/.config/dotfiles/scripts/hackthebox.sh
+mv backgrounds/sami.jpg /home/xllauca/.config/dotfiles/backgrounds/sami.jpg
+mv backgrounds/aphack.jpg /home/xllauca/.config/dotfiles/backgrounds/aphack.jpg
+mv backgrounds/circle.jpg /home/xllauca/.config/dotfiles/backgrounds/circle.jpg
+mv icons/haskell_20.xpm /home/xllauca/.config/dotfiles/icons/haskell_20.xpm
+sudo mv neofetch/config.conf /home/xllauca/.config/neofetch/config.conf
+mv picom/picom.conf /home/xllauca/.config/dotfiles/picom/picom.conf
+chmod +x /home/xllauca/.config/dotfiles/scripts/autostart.sh
+chmod +x /home/xllauca/.config/dotfiles/scripts/ethernet_status.sh
+chmod +x /home/xllauca/.config/dotfiles/scripts/hackthebox.sh
 echo -e "\n${azul}[Files and archives, created and copied successfully]${endColour}\n"
 #############################################################################################################
 #                                                PLUGINS INSTALLATION                                       #
 #############################################################################################################
 echo -e "\n${amarillo}[Installing and configuring plugins]${endColour}\n"
-cd ~/dotfiles
+cd /home/xllauca/dotfiles
 sudo mv fonts/* /usr/share/fonts/TTF/
 sudo chmod -R u+rw,g+r,o+r /usr/share/fonts/TTF/*
 sudo mv zsh/sudo.plugin.zsh /usr/share/zsh/plugins/zsh-autosuggestions/sudo.plugin.zsh
 sudo chmod u+rw,g+r,o+r /usr/share/zsh/plugins/zsh-autosuggestions/sudo.plugin.zsh
-cd ~
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
-cd ~/dotfiles
-sudo mv zsh/zshrc ~/.zshrc
-sudo mv zsh/p10k_user.zsh ~/.p10k.zsh
-cd ~
+cd /home/xllauca
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /home/xllauca/powerlevel10k
+cd /home/xllauca/dotfiles
+sudo mv zsh/zshrc /home/xllauca/.zshrc
+sudo mv zsh/p10k_user.zsh /home/xllauca/.p10k.zsh
+cd /home/xllauca
 git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
 mv .tmux/.tmux.conf.local .
 cd /root/
 sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /root/powerlevel10k
-cd ~/dotfiles
+cd /home/xllauca/dotfiles
 sudo mv zsh/p10k_root.zsh  /root/.p10k.zsh
 sudo rm /root/.zshrc
 sudo ln -s -f /home/xllauca/.zshrc /root/.zshrc
 gem install colorls
 sudo gem install colorls
 
-cd ~/dotfiles
+cd /home/xllauca/dotfiles
 git clone https://github.com/dracula/xfce4-terminal.git
 cd xfce4-terminal
 sudo mv Dracula.theme /usr/share/xfce4/terminal/colorschemes/
-cd ~/dotfiles
+cd /home/xllauca/dotfiles
 curl https://codeload.github.com/dracula/gtk/zip/master -o Dracula-theme.zip
 unzip Dracula-theme.zip
 mv gtk-master Dracula
 sudo mv Dracula /usr/share/themes/
-cd ~/dotfiles
+cd /home/xllauca/dotfiles
 wget https://github.com/dracula/gtk/files/5214870/Dracula.zip
 unzip Dracula
 sudo mv Dracula /usr/share/icons/ 
