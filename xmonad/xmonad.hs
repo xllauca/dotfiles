@@ -105,13 +105,12 @@ main = do
         { manageHook = ( isFullscreen --> doFullFloat )   <+> myManageHook <+> manageHook desktopConfig <+> manageDocks
         , logHook = dynamicLogWithPP xmobarPP
                         { ppOutput          = \x -> hPutStrLn xmproc0 x -- >> hPutStrLn xmproc1 x descomentar para segunda pantall
-                        , ppCurrent         = xmobarColor "#8EC07C" "" . \s -> "●"
-                        , ppVisible         = xmobarColor "#D79921" "" . \s -> "⦿"
-                        , ppHidden          = xmobarColor "#D79921" "" . \s -> "●"
-                        , ppHiddenNoWindows = xmobarColor "#a89984" "" . \s -> "○"
-                        --, ppTitle           = xmobarColor "#FBF1C7" "" . shorten 60
-                        , ppTitle           =  (\str -> "")
-                        , ppSep             =  "<fc=#CC241D> => </fc>"
+                        , ppCurrent         = xmobarColor "#8EC07C" "" . wrap "/" "/"
+                        , ppVisible         = xmobarColor "#D79921" ""
+                        , ppHidden          = xmobarColor "#D79921" "" . wrap "°" ""
+                        , ppHiddenNoWindows = xmobarColor "#a89984" ""
+                        , ppTitle           = xmobarColor "#FBF1C7" "" . shorten 60
+                        , ppSep             =  "<fc=#CC241D> ▶ </fc>"
                         , ppUrgent          = xmobarColor "#cc241d" "" . wrap "!" "!"
                         , ppExtras          = [windowCount]
                         , ppOrder           = \(ws:l:t:ex) -> [ws,l]++ex++[t]
@@ -182,7 +181,7 @@ xllaucaXPConfig :: XPConfig
 xllaucaXPConfig = def
       { font                = myFont
       , bgColor             = "#282828"
-      , fgColor             = "#EBDBB2"
+      , fgColor             = "#FBF1C7"
       , bgHLight            = "#458588"
       , fgHLight            = "#ffffff"
       , borderColor         = "#DC9656"
@@ -401,7 +400,7 @@ xmobarEscape = concatMap doubleLts
 
 myWorkspaces :: [String]
 myWorkspaces = clickable . (map xmobarEscape)
-               $ [" www ", " term ", " code ", " file ", " chat ", " vpn ", "spfy", "", "vbox"]
+               $ ["⬤", "⬤", "⬤", "⬤", "⬤", "⬤", "⬤", "⬤", "⬤"]
   where
         clickable l = [ "<action=xdotool key super+" ++ show (n) ++ ">" ++ ws ++ "</action>" |
                       (i,ws) <- zip [1..9] l,
@@ -432,8 +431,8 @@ myLayoutHook =  avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts floa
 -- Descomentar para agregar mas disenos
 --  myDefaultLayout = tall ||| grid ||| threeCol ||| threeRow ||| oneBig ||| noBorders monocle ||| space ||| floats
 tall         = renamed [Replace "T"]     $ limitWindows 12 $ spacing 6 $ ResizableTall 1 (3/100) (1/2) []
-grid       = renamed [Replace "G"]     $ limitWindows 12 $ spacing 6 $ mkToggle (single MIRROR) $ Grid (16/10)
-threeCol   = renamed [Replace "TC"] $ limitWindows 3  $ ThreeCol 1 (3/100) (1/2)
+--grid       = renamed [Replace "G"]     $ limitWindows 12 $ spacing 6 $ mkToggle (single MIRROR) $ Grid (16/10)
+--threeCol   = renamed [Replace "TC"] $ limitWindows 3  $ ThreeCol 1 (3/100) (1/2)
 --threeRow   = renamed [Replace "threeRow"] $ limitWindows 3  $ Mirror $ mkToggle (single MIRROR) zoomRow
 --oneBig     = renamed [Replace "oneBig"]   $ limitWindows 6  $ Mirror $ mkToggle (single MIRROR) $ mkToggle (single REFLECTX) $ mkToggle (single REFLECTY) $ OneBig (5/9) (8/12)
 monocle      = renamed [Replace "M"]  $ limitWindows 20 $ Full

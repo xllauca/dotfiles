@@ -17,26 +17,14 @@ echo -e "\n${verde}[INICIANDO...]${endColour}\n"
 #############################################################################################################
 #                                             CONFIGURATION MANUAL                                          #
 #############################################################################################################
-#systemctl start sshd
-#systemctl enable sshd.socket
-#systemctl start NetworkManager
-#systemctl enable NetworkManager
-#sed 's/# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/g' /etc/sudoers > /etc/sudoers.new
-#export EDITOR="cp /etc/sudoers.new"
-#visudo
-#rm /etc/sudoers.new
-#useradd -m -g users -G wheel -s /bin/zsh xllauca
-#passwd xllauca
-#Edit on  /etc/pacman.conf 
-#uncoment the next line
-#Include = /etc/pacman.d/mirrorlist/
-#pacman -Syu
+pacman -Syu
 #sudo pacman -S lightdm-webkit2-greeter --noconfirm
+#sudo pacman -S lightdm-webkit2-greeter lightdm-webkit-theme-litarvan --noconfirm
 #sudo systemctl status lightdm
 #/usr/lib/systemd/system/lightdm.service
 #/etc/lightdm/lightdm.conf
 #sudo systemctl enable lightdm.service
-#sudo pacman -S xorg-server
+sudo pacman -S xorg-server
 #/etc/systemd/system/display-manager.service
 #nano /etc/lightdm/lightdm-webkit2-greeter.conf
 sudo echo 'include "/usr/share/nano-syntax-highlighting/*.nanorc"' >> /etc/nanorc
@@ -44,12 +32,15 @@ sudo echo 'include "/usr/share/nano-syntax-highlighting/*.nanorc"' >> /etc/nanor
 #                                            INSTALLING DEPENDENCIES                                        #
 #############################################################################################################
 echo -e "\n${amarillo}[Installing dependencies]${endColour}\n"
-#su - xllauca
-sudo pacman -S lightdm-webkit2-greeter lightdm-webkit-theme-litarvan --noconfirm
+sudo pacman -S cmake freetype2 fontconfig pkg-config make libxcb libxkbcommon
+
 cd /home/xllauca
 pacman -S sudo --noconfirm
 pacman -S zsh --noconfirm
 pacman -S git --noconfirm
+sudo pacman -S python-pip --noconfirm
+sudo pacman -S go --noconfirm
+sudo pacman -S tmux --noconfirm
 
 cd /home/xllauca
 sudo chsh -s /usr/bin/zsh root
@@ -153,7 +144,8 @@ mkdir -p /home/xllauca/.config/dotfiles/backgrounds
 mkdir -p /home/xllauca/.config/dotfiles/icons
 mkdir -p /home/xllauca/.config/dotfiles/picom
 cd /home/xllauca/dotfiles
-mv xmonad/xmonad.hs /home/xllauca/.xmonad/xmonad.hs
+#mv xmonad/xmonad.hs /home/xllauca/.xmonad/xmonad.hs
+cp mv xmonad/xmonad.hs /root/.xmonad/
 mv xmobar/xmobarrc0  /home/xllauca/.config/dotfiles/xmobar/xmobarrc0
 sudo mv scripts/exec-in-shell /usr/bin/
 sudo chmod +x /usr/bin/exec-in-shell
@@ -174,7 +166,10 @@ echo -e "\n${azul}[Files and archives, created and copied successfully]${endColo
 #                                                PLUGINS INSTALLATION                                       #
 #############################################################################################################
 echo -e "\n${amarillo}[Installing and configuring plugins]${endColour}\n"
+
+sudo locale-gen
 cd /home/xllauca/dotfiles
+sudo mkdir /usr/share/fonts/TTF/
 sudo mv fonts/* /usr/share/fonts/TTF/
 sudo chmod -R u+rw,g+r,o+r /usr/share/fonts/TTF/*
 sudo mv zsh/sudo.plugin.zsh /usr/share/zsh/plugins/zsh-autosuggestions/sudo.plugin.zsh
@@ -188,7 +183,7 @@ cd /home/xllauca
 git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
 mv .tmux/.tmux.conf.local .
-cd /root/
+sudo cd /root/
 sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /root/powerlevel10k
 cd /home/xllauca/dotfiles
 sudo mv zsh/p10k_root.zsh  /root/.p10k.zsh
