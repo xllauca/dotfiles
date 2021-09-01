@@ -28,7 +28,6 @@ echo -e "\n${amarillo}[Installing dependencies]${endColour}\n"
 sudo pacman -S cmake freetype2 fontconfig pkg-config make libxcb libxkbcommon
 
 cd /home/xllauca
-pacman -S sudo --noconfirm
 pacman -S zsh --noconfirm
 pacman -S git --noconfirm
 sudo pacman -S python-pip --noconfirm
