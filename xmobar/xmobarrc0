@@ -1,4 +1,4 @@
-Config { font    = "xft:Hack Nerd Font Mono:weight=bold:pixelsize=15:antialias=true:hinting=true"
+Config { font    = "xft:Hack Nerd Font Mono:weight=bold:pixelsize=14:antialias=true:hinting=true"
        , additionalFonts = [ "xft:mononoki Nerd Font:pixelsize=12:antialias=true:hinting=true"
                            , "xft:Font Awesome 5 Free Solid:pixelsize=12"
                            , "xft:Font Awesome 5 Brands Regular:pixelsize=12"
@@ -13,16 +13,16 @@ Config { font    = "xft:Hack Nerd Font Mono:weight=bold:pixelsize=15:antialias=t
        , iconRoot = "/home/xllauca/.config/dotfiles/icons"  -- default: "."
        , commands = [
                     -- Time and date
-                    Run Date "<fn=2>\xf017</fn>  %b %d %Y - (%H:%M) " "date" 50
+                    Run Date "<fn=2>\xf017</fn> %b %d %Y-(%H:%M) " "date" 50
                     --Run Date "(%H:%M)" "date" 50
                       -- Network up and down
                     , Run Network "ens33" ["-t", "<fn=2>\xf381</fn> <rx>kb  <fn=2>\xf382</fn>  <tx>kb"] 20
                       -- Cpu usage in percent
-                    , Run Cpu ["-t", "<fn=2>\xf5fc</fn>  cpu: (<total>%)","-H","50","--high","red"] 20
+                    , Run Cpu ["-t", "<fn=2>\xf5fc</fn>cpu:(<total>%)","-H","50","--high","red"] 20
                       -- Ram used number and percent
-                    , Run Memory ["-t", "<fn=2>\xf2db</fn>  mem: <used>M (<usedratio>%)"] 20
+                    , Run Memory ["-t", "<fn=2>\xf2db</fn>mem:<used>M (<usedratio>%)"] 20
                       -- Disk space free
-                    , Run DiskU [("/", "<fn=2>\xf0a0</fn>  hdd: <free> free")] [] 60
+                    , Run DiskU [("/", "<fn=2>\xf0a0</fn>hdd:<free> free")] [] 60
                       -- Runs custom script to check for pacman updates. Arch Version
                     , Run Com "/home/xllauca/.config/dotfiles/scripts/ethernet_status.sh" []  "ether" 50
                     , Run Com "/home/xllauca/.config/dotfiles/scripts/hackthebox.sh" []  "htb" 50
@@ -30,5 +30,5 @@ Config { font    = "xft:Hack Nerd Font Mono:weight=bold:pixelsize=15:antialias=t
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " <icon=haskell_20.xpm/> <fc=#a89984>|</fc> %UnsafeStdinReader% }{<fc=#666666>|</fc><fc=#0080ff></fc> <fc=#e2ee6a>%ether%</fc><fc=#666666>|</fc><fc=#49FF3D> </fc><fc=#e2ee6a>%htb%</fc><fc=#666666>|</fc><fc=#a89984>%cpu%</fc><fc=#a89984>|</fc><fc=#689d6a>%memory%</fc><fc=#689d6a>|</fc><fc=#83a598>%disku%</fc><fc=#83a598>|</fc><fc=#d65d0e></fc><fc=#fbf1c7>%date% |</fc> "
+       , template = " <icon=haskell_20.xpm/> <fc=#a89984>|</fc> %UnsafeStdinReader% }{<fc=#666666>|</fc><fc=#0080ff></fc> <>
        }
