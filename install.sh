@@ -15,9 +15,42 @@ azul="\e[0;34m\033[1m"
 amarillo="\e[0;33m\033[1m"
 echo -e "\n${verde}[INICIANDO...]${endColour}\n"
 #############################################################################################################
+#                                             CONFIGURATION MANUAL                                          #
+#############################################################################################################
+#systemctl start sshd
+#systemctl enable sshd.socket
+#systemctl start NetworkManager
+#systemctl enable NetworkManager
+#sed 's/# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/g' /etc/sudoers > /etc/sudoers.new
+#export EDITOR="cp /etc/sudoers.new"
+#visudo
+#rm /etc/sudoers.new
+#useradd -m -g users -G wheel -s /bin/zsh xllauca
+#passwd xllauca
+#Edit on  /etc/pacman.conf 
+#uncoment the next line
+#Include = /etc/pacman.d/mirrorlist/
+#pacman -Syu
+#sudo pacman -S lightdm-webkit2-greeter --noconfirm
+#sudo systemctl status lightdm
+#/usr/lib/systemd/system/lightdm.service
+#/etc/lightdm/lightdm.conf
+#sudo systemctl enable lightdm.service
+#sudo pacman -S xorg-server
+#/etc/systemd/system/display-manager.service
+#nano /etc/lightdm/lightdm-webkit2-greeter.conf
+sudo echo 'include "/usr/share/nano-syntax-highlighting/*.nanorc"' >> /etc/nanorc
+#############################################################################################################
 #                                            INSTALLING DEPENDENCIES                                        #
 #############################################################################################################
 echo -e "\n${amarillo}[Installing dependencies]${endColour}\n"
+su - xllauca
+sudo pacman -S lightdm-webkit2-greeter lightdm-webkit-theme-litarvan --noconfirm
+cd ~
+pacman -S sudo --noconfirm
+pacman -S zsh --noconfirm
+pacman -S git --noconfirm
+
 cd ~
 sudo chsh -s /usr/bin/zsh root
 sudo chsh -s /usr/bin/zsh xllauca
@@ -179,15 +212,7 @@ unzip Dracula
 sudo mv Dracula /usr/share/icons/ 
 sudo mv themes/settings.ini /usr/share/gtk-3.0/settings.ini
 sudo mv themes/gtkrc /usr/share/gtk-2.0/gtkrc
-
-
-
 echo -e "\n${azul}[Plugins successfully installed and configured]${endColour}\n"
-#############################################################################################################
-#                                             CONFIGURATION MANUAL                                          #
-#############################################################################################################
-sudo echo 'include "/usr/share/nano-syntax-highlighting/*.nanorc"' >> /etc/nanorc
-
 #############################################################################################################
 #                                           START AN ENABLE SERVICE                                         #
 #############################################################################################################
