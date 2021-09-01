@@ -2,4 +2,10 @@
 systemctl start NetworkManager
 systemctl enable NetworkManager
 pacman -S git
+useradd -m -g users -G wheel -s /bin/bash xllauca
+passwd xllauca
+cd ~
+git clone https://github.com/xllauca/dotfiles.git
+cp dotfiles/prepare.sh .
+mv dotfiles /home/xllauca/
 #############################################################################################################
