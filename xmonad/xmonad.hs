@@ -93,7 +93,7 @@ import XMonad.Prompt.AppendFile
 
 myFont          = "xft:Hack Nerd Font Mono:weight=bold:pixelsize=11:antialias=true:hinting=true"
 myModMask       = mod1Mask               -- Setear la tecla maestra / por defecto windows key
-myTerminal      = "xfce4-terminal"       -- Terminal por defecto
+myTerminal      = "alacritty"       -- Terminal por defecto
 --myTextEditor    = "code"                 -- Editor de texto por defecto
 myBorderWidth   = 1                      -- Setear el tamano del borde
 windowCount     = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
@@ -108,9 +108,10 @@ main = do
                         , ppCurrent         = xmobarColor "#8EC07C" "" . wrap "/" "/"
                         , ppVisible         = xmobarColor "#D79921" ""
                         , ppHidden          = xmobarColor "#D79921" "" . wrap "°" ""
-                        , ppHiddenNoWindows = xmobarColor "#a89984" ""
-                        , ppTitle           = xmobarColor "#FBF1C7" "" . shorten 60
-                        , ppSep             =  "<fc=#CC241D> ▶ </fc>"
+                        , ppHiddenNoWindows = xmobarColor "#a89984" "" 
+                        --, ppTitle           = xmobarColor "#FBF1C7" "" . shorten 60
+                        , ppTitle           =  (\str -> "")
+                        , ppSep             =  "<fc=#CC241D> => </fc>"
                         , ppUrgent          = xmobarColor "#cc241d" "" . wrap "!" "!"
                         , ppExtras          = [windowCount]
                         , ppOrder           = \(ws:l:t:ex) -> [ws,l]++ex++[t]
@@ -363,7 +364,7 @@ myKeys =
 
     --- Programas
         , ("M-d", spawn "rofi -show run")
-	    , ("M-t", spawn "Thunar $(pwd)")
+    	, ("M-t", spawn "Thunar $(pwd)")
         , ("M-f", spawn "firefox")
         , ("M-p", spawn "flameshot gui")
         , ("M-<Return>", spawn (myTerminal ++ " -e zsh"))
@@ -400,7 +401,7 @@ xmobarEscape = concatMap doubleLts
 
 myWorkspaces :: [String]
 myWorkspaces = clickable . (map xmobarEscape)
-               $ ["⬤", "⬤", "⬤", "⬤", "⬤", "⬤", "⬤", "⬤", "⬤"]
+               $ ["●", "●", "●", "●", "●", "●", "●", "●", "●"]
   where
         clickable l = [ "<action=xdotool key super+" ++ show (n) ++ ">" ++ ws ++ "</action>" |
                       (i,ws) <- zip [1..9] l,
@@ -438,4 +439,3 @@ tall         = renamed [Replace "T"]     $ limitWindows 12 $ spacing 6 $ Resizab
 monocle      = renamed [Replace "M"]  $ limitWindows 20 $ Full
 --space      = renamed [Replace "space"]    $ limitWindows 4  $ spacing 12 $ Mirror $ mkToggle (single MIRROR) $ mkToggle (single REFLECTX) $ mkToggle (single REFLECTY) $ OneBig (2/3) (2/3)
 floats       = renamed [Replace "F"]   $ limitWindows 20 $ simplestFloat
- 
