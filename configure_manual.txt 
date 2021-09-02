@@ -7,5 +7,4 @@ passwd xllauca
 cd ~
 git clone https://github.com/xllauca/dotfiles.git
 cp dotfiles/prepare.sh .
-mv dotfiles /home/xllauca/
 #############################################################################################################
