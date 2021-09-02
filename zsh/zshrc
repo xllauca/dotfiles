@@ -2,7 +2,7 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 # Load colours and then set prompt
 # Prompt preview:
 # [user@hostname]-[~]
-# >>>
+# >>>¡™
 autoload -U colors && colors
 PS1="%{$fg[blue]%}%B[%b%{$fg[cyan]%}%n%{$fg[grey]%}%B@%b%{$fg[cyan]%}%m%{$fg[blue]%}%B]-%b%{$fg[blue]%}%B[%b%{$fg[white]%}%~%{$fg[blue]%}%B]%b
 %{$fg[cyan]%}%B>>>%b%{$reset_color%} "
@@ -10,7 +10,7 @@ PS1="%{$fg[blue]%}%B[%b%{$fg[cyan]%}%n%{$fg[grey]%}%B@%b%{$fg[cyan]%}%m%{$fg[blu
 # Fix the Java Problem
 export _JAVA_AWT_WM_NONREPARENTING=1  #s4v
 export LD_PRELOAD=""
-export EDITOR="vim"
+#export EDITOR="vi"
 export PATH="$HOME/bin:/usr/lib/ccache/bin/:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/opt/bin:/usr/bin/core_perl:/usr/games/bin:$PATH"
 
 # Enable Powerlevel10k instant prompt. Should stay at the top of ~/.zshrc.
@@ -105,7 +105,6 @@ source /usr/share/fzf/key-bindings.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/*.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/*.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/sudo.plugin.zsh
-#mis atajos
 
 #neofetch | lolcat
 # Functions
@@ -139,7 +138,7 @@ function man() {
 }
 
 # fzf improvement
-function fzf-lovely(){
+function show(){
 
 	if [ "$1" = "h" ]; then
 		fzf -m --reverse --preview-window down:20 --preview '[[ $(file --mime {}) =~ binary ]] &&
@@ -166,30 +165,6 @@ function rmk(){
 	shred -zun 10 -v $1
 }
 
-
-#alias 
-alias c="clear"
-alias cd..="cd .."
-alias curl="curl --user-agent 'noleak'"
-#alias l="ls -ahls --color=auto"
-alias r="reset"
-alias shred="shred -zf"
-alias sl="ls --color=auto"
-alias vi="vim"
-alias ls="ls --color=auto"
-alias dir="dir --color=auto"
-alias vdir="vdir --color=auto"
-alias grep="grep --color=auto"
-alias fgrep="fgrep --color=auto"
-alias egrep="egrep --color=auto"
-alias wget="wget -c --user-agent 'noleak'"
-alias dd="dd status=progress"
-alias cp="cp -i"                          # confirm before overwriting something
-alias rm="rm -i"
-alias mv="mv -i"
-alias df="df -h"                          # human-readable sizes
-alias free="free -h"
-alias du="du -h"
 alias htbe="/home/xllauca/Desktop/xllauca/Tools/htbExplorer/htbExplorer"
 alias htbi="openvpn /root/Desktop/lab_xllauca.ovpn &"
 alias htbs="killall openvpn"
@@ -200,3 +175,4 @@ alias htbs="killall openvpn"
 
 # Finalize Powerlevel10k instant prompt. Should stay at the bottom of ~/.zshrc.
 (( ! ${+functions[p10k-instant-prompt-finalize]} )) || p10k-instant-prompt-finalize
+fpath+=${ZDOTDIR:-~}/.zsh_functions

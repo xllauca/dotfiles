@@ -7,6 +7,7 @@ git clone https://github.com/devanshbatham/ParamSpider
 cd ParamSpider
 sudo pip3 install -r requirements.txt
 sudo pacman -S netcat --noconfirm
+
 #sudo pacman -S sublist3r --noconfirm
 #sudo pacman -S rustscan --noconfirm
 sudo pacman -S joomscan --noconfirm
@@ -55,5 +56,19 @@ sudo pacman -S cloudfail --noconfirm
 sudo pacman -S linkfinder --noconfirm
 sudo pacman -S shellerator --noconfirm
 sudo pacman -S enum4linux-ng --noconfirm
+#_____________________________________
+cd /opt/
+sudo mkdir tools
+cd tools
+sudo mkdir pwncat
+cd pwncat
+sudo python3 -m venv pwncat-env
+source pwncat-env/bin/activate
+sudo git clone https://github.com/dannymas/pwncat-1.git
+sudo pip install -U git+https://github.com/calebstewart/paramiko
+sudo pip install git+https://github.com/JohnHammond/base64io-python
+cd pwncat-1
+
+
 echo -e "\n${azul}[Successfully installed tools]${endColour}\n"
 #############################################################################################################

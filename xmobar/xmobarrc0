@@ -3,7 +3,7 @@ Config { font    = "xft:Hack Nerd Font Mono:weight=bold:pixelsize=14:antialias=t
                            , "xft:Font Awesome 5 Free Solid:pixelsize=12"
                            , "xft:Font Awesome 5 Brands Regular:pixelsize=12"
                            ]
-       , bgColor = "#282828"
+       , bgColor = "#282a36"
        , fgColor = "#FBF1C7"
       -- , position = Static { xpos = 0 , ypos = 0, width = 1950, height = 24 }
        , lowerOnStart = True
