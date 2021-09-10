@@ -52,7 +52,7 @@ sudo pacman -S zsh-syntax-highlighting --noconfirm
 sudo pacman -S zsh-autosuggestions --noconfirm
 sudo pacman -S nano-syntax-highlighting --noconfirm
 sudo pacman -S fzf --noconfirm
-#sudo pacman -S open-vm-tools --noconfirm
+sudo pacman -S open-vm-tools --noconfirm
 sudo pacman -S xclip --noconfirm
 sudo pacman -S bat --noconfirm
 sudo pacman -S lolcat --noconfirm
@@ -92,11 +92,12 @@ chmod +x /home/xllauca/.config/dotfiles/scripts/ethernet_status.sh
 chmod +x /home/xllauca/.config/dotfiles/scripts/hackthebox.sh
 sudo cp configs/lightdm.conf /etc/lightdm/
 sudo cp configs/lightdm-webkit2-greeter.conf /etc/lightdm/
+cd /home/xllauca && mkdir projects
 cd /home/xllauca/dotfiles
-cp scripts/functions.sh /home/xllauca/functions.sh
-cp scripts/testing.sh ~/testing.sh
-chmod +x /home/xllauca/functions.sh
-chmod +x ~/testing.sh
+cp scripts/functions.sh /home/xllauca/projects/functions.sh
+cp scripts/testing.sh /home/xllauca/projects/testing.sh
+chmod +x /home/xllauca/projects/functions.sh
+chmod +x /home/xllauca/projects/testing.sh
 echo -e "\n${azul}[Files and archives, created and copied successfully]${endColour}\n"
 #############################################################################################################
 #                                                PLUGINS INSTALLATION                                       #
@@ -129,12 +130,23 @@ echo -e "\n${azul}[Plugins successfully installed and configured]${endColour}\n"
 #                                           START AN ENABLE SERVICE                                         #
 #############################################################################################################
 echo -e "\n${amarillo}[Enabling services]${endColour}\n"
-#sudo systemctl start vmtoolsd.service
-#udo systemctl enable vmtoolsd.service
+sudo systemctl start vmtoolsd.service
+sudo systemctl enable vmtoolsd.service
 vmware-toolbox-cmd timesync enable
 sudo systemctl start sshd.service
 sudo systemctl enable sshd.service
 sudo systemctl enable lightdm
+cd ~ 
+git clone https://github.com/rasa/vmware-tools-patches.git
+cd vmware-tools-patches
+sudo ./patched-open-vm-tools.sh
+sudo pacman -S asp --noconfirm
+asp checkout open-vm-tools
+cd /home/xllauca/open-vm-tools/repos/community-x86_64
+makepkg -s --asdeps --noconfirm
+sudo cp vm* /usr/lib/systemd/system
+sudo systemctl enable vmware-vmblock-fuse
+sudo systemctl enable vmtoolsd
 echo -e "\n${azul}[Successfully enabled services]${endColour}\n"
 #############################################################################################################
 #                                               XMONAD COMPILE                                              #
