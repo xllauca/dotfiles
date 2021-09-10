@@ -143,6 +143,7 @@ sudo ./patched-open-vm-tools.sh
 sudo pacman -S asp --noconfirm
 asp checkout open-vm-tools
 cd /home/xllauca/open-vm-tools/repos/community-x86_64
+cd /home/xllauca/vmware-tools-patches/open-vm-tools/repos/community-x86_64
 makepkg -s --asdeps --noconfirm
 sudo cp vm* /usr/lib/systemd/system
 sudo systemctl enable vmware-vmblock-fuse
