@@ -161,7 +161,7 @@ function rmk(){
 	shred -zun 10 -v $1
 }
 
-alias miau="~/testing.sh 2&>/dev/null &"
+alias miau="/home/xllauca/projects/testing.sh 2&>/dev/null &"
 alias htbe="/home/xllauca/Desktop/xllauca/Tools/htbExplorer/htbExplorer"
 alias htbi="openvpn /root/Desktop/lab_xllauca.ovpn &"
 alias htbs="killall openvpn"

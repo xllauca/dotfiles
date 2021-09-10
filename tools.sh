@@ -187,7 +187,7 @@ pipx install deathstar-empire #se llama Deathstar
 pipx install crackmapexec
 sudo ln -s /home/xllauca/.local/bin/crackmapexec /usr/bin/crackmapexec
 #_____________________________________________________
-cd /home/xllauca && mkdir projects && cd !$
+cd /home/xllauca/projects/
 python3 -m venv pwncat-env
 source pwncat-env/bin/activate
 git clone https://github.com/calebstewart/pwncat.git
