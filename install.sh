@@ -35,14 +35,14 @@ sudo pacman -S tmux --noconfirm
 cd /home/xllauca
 sudo chsh -s /usr/bin/zsh root
 sudo chsh -s /usr/bin/zsh xllauca
-sudo pacman -S vim --noconfirm
+sudo pacman -S firejail --noconfirm
+sudo pacman -S neovim --noconfirm
 sudo pacman -S unzip --noconfirm
 sudo pacman -S feh --noconfirm #
-sudo pacman -S exa --noconfirm
-sudo pacman -S trayer --noconfirm
+#sudo pacman -S exa --noconfirm
 sudo pacman -S wget --noconfirm
 sudo pacman -S nautilus --noconfirm
-sudo pacman -S qutebrowser --noconfirm
+#sudo pacman -S qutebrowser --noconfirm
 sudo pacman -S xmonad xmonad-contrib --noconfirm
 sudo pacman -S xmobar --noconfirm
 sudo pacman -S picom --noconfirm
@@ -52,7 +52,7 @@ sudo pacman -S zsh-syntax-highlighting --noconfirm
 sudo pacman -S zsh-autosuggestions --noconfirm
 sudo pacman -S nano-syntax-highlighting --noconfirm
 sudo pacman -S fzf --noconfirm
-sudo pacman -S open-vm-tools --noconfirm
+#sudo pacman -S open-vm-tools --noconfirm
 sudo pacman -S xclip --noconfirm
 sudo pacman -S bat --noconfirm
 sudo pacman -S lolcat --noconfirm
@@ -92,6 +92,11 @@ chmod +x /home/xllauca/.config/dotfiles/scripts/ethernet_status.sh
 chmod +x /home/xllauca/.config/dotfiles/scripts/hackthebox.sh
 sudo cp configs/lightdm.conf /etc/lightdm/
 sudo cp configs/lightdm-webkit2-greeter.conf /etc/lightdm/
+cd /home/xllauca/dotfiles
+cp scripts/functions.sh /home/xllauca/functions.sh
+cp scripts/testing.sh ~/testing.sh
+chmod +x /home/xllauca/functions.sh
+chmod +x ~/testing.sh
 echo -e "\n${azul}[Files and archives, created and copied successfully]${endColour}\n"
 #############################################################################################################
 #                                                PLUGINS INSTALLATION                                       #
@@ -124,8 +129,8 @@ echo -e "\n${azul}[Plugins successfully installed and configured]${endColour}\n"
 #                                           START AN ENABLE SERVICE                                         #
 #############################################################################################################
 echo -e "\n${amarillo}[Enabling services]${endColour}\n"
-sudo systemctl start vmtoolsd.service
-sudo systemctl enable vmtoolsd.service
+#sudo systemctl start vmtoolsd.service
+#udo systemctl enable vmtoolsd.service
 vmware-toolbox-cmd timesync enable
 sudo systemctl start sshd.service
 sudo systemctl enable sshd.service

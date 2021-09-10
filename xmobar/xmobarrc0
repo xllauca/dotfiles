@@ -22,13 +22,14 @@ Config { font    = "xft:Hack Nerd Font Mono:weight=bold:pixelsize=14:antialias=t
                     -- Ram used number and percent
                     , Run Memory ["-t", "<fn=2>\xf2db</fn>mem:<used>M (<usedratio>%)"] 20
                     -- Disk space free
-                    , Run DiskU [("/", "<fn=2>\xf0a0</fn>hdd:<free> free")] [] 60
+                    --, Run DiskU [("/", "<fn=2>\xf0a0</fn>hdd:<free> free")] [] 60
                     -- Runs custom script to check for pacman updates. Arch Version
                     , Run Com "/home/xllauca/.config/dotfiles/scripts/ethernet_status.sh" []  "ether" 50
                     , Run Com "/home/xllauca/.config/dotfiles/scripts/hackthebox.sh" []  "htb" 50
+                    , Run Com "uname" ["-r"] "" 3600
                     , Run UnsafeStdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " <icon=haskell_20.xpm/> <fc=#a89984>|</fc> %UnsafeStdinReader% }{<fc=#666666>|</fc><fc=#0080ff></fc> <fc=#e2ee6a>%ether%</fc><fc=#666666>|</fc><fc=#49FF3D> </fc><fc=#e2ee6a>%htb%</fc><fc=#666666>|</fc><fc=#a89984>%cpu%</fc><fc=#a89984>|</fc><fc=#689d6a>%memory%</fc><fc=#689d6a>|</fc><fc=#83a598>%disku%</fc><fc=#83a598>|</fc><fc=#d65d0e></fc><fc=#fbf1c7>%date% |</fc>  "
+       , template = " <icon=haskell_20.xpm/> <fc=#a89984>|</fc> %UnsafeStdinReader% }{<fc=#a89984>|</fc><fc=#d3869b><fn=3></fn> %uname%</fc> <fc=#a89984>|</fc><fc=#0080ff></fc> <fc=#e2ee6a>%ether%</fc><fc=#a89984>|</fc><fc=#49FF3D> </fc><fc=#e2ee6a>%htb%</fc><fc=#a89984>|</fc><fc=#a89984>%cpu%</fc><fc=#a89984>|</fc><fc=#689d6a>%memory%</fc><fc=#a89984>|</fc><fc=#d65d0e></fc><fc=#fbf1c7>%date%|</fc>"
        }
