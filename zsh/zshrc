@@ -18,10 +18,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+POWERLEVEL9K_LEGACY_ICON_SPACING=true
 # Set up the prompt
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+#typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+#typeset -g POWERLEVEL9K_STATUS_OK=true
 # disables prompt mangling in virtual_env/bin/activate
-export VIRTUAL_ENV_DISABLE_PROMPT=1
+#export VIRTUAL_ENV_DISABLE_PROMPT=1
 setopt histignorealldups sharehistory
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
@@ -161,7 +163,7 @@ function rmk(){
 	shred -zun 10 -v $1
 }
 
-alias miau="/home/xllauca/projects/testing.sh 2&>/dev/null &"
+alias miau="~/testing.sh 2&>/dev/null &"
 alias htbe="/home/xllauca/Desktop/xllauca/Tools/htbExplorer/htbExplorer"
 alias htbi="openvpn /root/Desktop/lab_xllauca.ovpn &"
 alias htbs="killall openvpn"
