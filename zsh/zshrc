@@ -11,7 +11,7 @@ PS1="%{$fg[blue]%}%B[%b%{$fg[cyan]%}%n%{$fg[grey]%}%B@%b%{$fg[cyan]%}%m%{$fg[blu
 export _JAVA_AWT_WM_NONREPARENTING=1  #s4v
 export LD_PRELOAD=""
 #export EDITOR="vi"
-export PATH="$HOME/bin:/usr/lib/ccache/bin/:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/opt/bin:/usr/bin/core_perl:/usr/games/bin:$PATH"
+export PATH="$HOME/bin:/usr/lib/ccache/bin/:/home/xllauca/.local/bin:/root/.local/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/opt/bin:/usr/bin/core_perl:/usr/games/bin:$PATH"
 
 # Enable Powerlevel10k instant prompt. Should stay at the top of ~/.zshrc.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -20,12 +20,9 @@ fi
 
 # Set up the prompt
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
-#autoload -Uz promptinit
-#promptinit
-#prompt adam1
-
+# disables prompt mangling in virtual_env/bin/activate
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 setopt histignorealldups sharehistory
-
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
 bindkey '^[[7~' beginning-of-line                               # Home key
@@ -90,13 +87,12 @@ source /home/xllauca/powerlevel10k/powerlevel10k.zsh-theme
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 # Manual configuration
-# Manual aliases
 alias ll='lsd -lh --group-dirs=first'
 alias la='lsd -a --group-dirs=first'
 alias l='lsd --group-dirs=first'
 alias lla='lsd -lha --group-dirs=first'
 alias ls='lsd --group-dirs=first'
-alias cat='bat'
+#alias cat='bat'
 
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
@@ -165,6 +161,7 @@ function rmk(){
 	shred -zun 10 -v $1
 }
 
+alias miau="~/testing.sh 2&>/dev/null &"
 alias htbe="/home/xllauca/Desktop/xllauca/Tools/htbExplorer/htbExplorer"
 alias htbi="openvpn /root/Desktop/lab_xllauca.ovpn &"
 alias htbs="killall openvpn"
