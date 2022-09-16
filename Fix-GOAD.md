@@ -75,7 +75,7 @@ target.vm.box_download_insecure = box[:box]  # nueva linea agregada
 Esto es por estética, los nombres de las maquinas virtuales cuando se crean en VirtualBox tienen un nombre largo, como se muestra en la siguiente imagen.
 
 
-![im1.png](./attachments/Pasted image 20220915191533.png)
+![im1](https://github.com/xllauca/dotfiles/blob/master/attachments/Pasted%20image%2020220915191533.png)
 
 Lo que se realizo fue agregar las siguientes lineas de código en el archivo de `Vagrantfile`, para que se visualize de las siguiente manera. 
 
@@ -88,6 +88,6 @@ end                                    #new linea 3
 ```
 
 **Nueva visualización**
-![im1.png](./attachments/Pasted image 20220915201746.png)
+![im2](https://github.com/xllauca/dotfiles/blob/master/attachments/Pasted%20image%2020220915201746.png)
 
 Saludos
