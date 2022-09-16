@@ -15,7 +15,7 @@ Latest Version: 2.3.0
 
 
 # Issue
-Note:** Verify that the `~/.vagrant.d/boxes` directory where the boxes used for the "GOAD" lab are stored is clean, otherwise **The problem will not occur, because you have already downloaded the boxes**. Otherwise **The problem will not occur, because you have already downloaded the boxes**, this problem occurs when you deploy the lab from scratch.
+Note:** Verify that the `~/.vagrant.d/boxes` directory where the boxes used for the "GOAD" lab are stored is clean, otherwise **The problem will not occur, because you have already downloaded the boxes**, this problem occurs when you deploy the lab from scratch.
 
 
 **Problem**: I was following the steps for GOAD deployment "from scratch, i.e. the boxes had to be downloaded" and the console gave me an error when I executed the following command `vagrant up`.
