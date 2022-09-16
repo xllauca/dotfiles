@@ -1,5 +1,5 @@
 
-# Detalles del ambiente de pruebas
+# Details of the test environment
 ### Vagrant version
 
 ```bash
@@ -14,11 +14,11 @@ Latest Version: 2.3.0
 -   VirtualBox - Version 6.1.38 r153438 (Qt5.6.3)
 
 
-# Problema
-**Nota:** Verifique que el directorio de  `~/.vagrant.d/boxes` donde se almacenan las cajas utilizadas para el laboratorio de "GOAD" , este limpio, caso contrario **El problema no se presentara, debido a que ya tiene descargado las cajas**, este problema esta presenta cuando se despliega el laboratorio desde cero.
+# Issue
+Note:** Verify that the `~/.vagrant.d/boxes` directory where the boxes used for the "GOAD" lab are stored is clean, otherwise **The problem will not occur, because you have already downloaded the boxes**. Otherwise **The problem will not occur, because you have already downloaded the boxes**, this problem occurs when you deploy the lab from scratch.
 
 
-**Problema**: Estaba siguiendo  los pasos para el despliegue de GOAD "desde cero, es decir la cajas tenian que ser descargadas" y  la consola me arrojo un error cuando ejecute el siguiente comando `vagrant up`
+**Problem**: I was following the steps for GOAD deployment "from scratch, i.e. the boxes had to be downloaded" and the console gave me an error when I executed the following command `vagrant up`.
 
 
 ```bash
@@ -60,7 +60,7 @@ URL: ["https://vagrantcloud.com/StefanScherer/windows_2019"]
 Error: SSL certificate problem: self signed certificate in certificate chain
 ```
 
-**Después de investigar, di con con la solución** que encontre en este post de [Stackoverflow](https://stackoverflow.com/questions/42718527/vagrant-up-command-throwing-ssl-error),  el mismo que esta relacionado a las descargas de cajas inseguras,  por lo cual se agrego la siguiente linea`target.vm.box_download_insecure = box[:box]`en el archivo de `Vagrantfile`
+**After some research, I found the solution** in this post from [Stackoverflow](https://stackoverflow.com/questions/42718527/vagrant-up-command-throwing-ssl-error), which is related to insecure box downloads, so I added the following line `target.vm.box_download_insecure = box[:box]` in the `Vagrantfile` file
 
 ```ruby
 .
@@ -70,16 +70,15 @@ target.vm.box_download_insecure = box[:box]  # nueva linea agregada
 .
 .
 ```
-
-# Nuevas características 
-Esto es por estética, los nombres de las maquinas virtuales cuando se crean en VirtualBox tienen un nombre largo, como se muestra en la siguiente imagen.
+# New features 
+This is for aesthetics, the names of the virtual machines when created in VirtualBox have a long name, as shown in the following image.
 
 
 ![im1](https://github.com/xllauca/dotfiles/blob/master/attachments/Pasted%20image%2020220915191533.png)
 
-Lo que se realizo fue agregar las siguientes lineas de código en el archivo de `Vagrantfile`, para que se visualize de las siguiente manera. 
+What was done was to add the following lines of code in the `Vagrantfile` file, so that it is displayed as follows. 
 
-**Lineas de codigo agregadas**
+**Lines of code added**.
 ```ruby
 # BOX
 target.vm.provider "virtualbox" do |v| #new linea 1
@@ -87,7 +86,7 @@ target.vm.provider "virtualbox" do |v| #new linea 1
 end                                    #new linea 3
 ```
 
-**Nueva visualización**
+**New display on VirtualBox**
 ![im2](https://github.com/xllauca/dotfiles/blob/master/attachments/Pasted%20image%2020220915201746.png)
 
-Saludos
+Greetings
